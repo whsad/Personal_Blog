@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  web:
+    locale: en
+    locale-resolver: fixed
+  thymeleaf:
+    cache: false
+
+personalblog:
+  account:
+    - username: admin
+      password: admin
+    - username: kirito
+      password: 123456
+

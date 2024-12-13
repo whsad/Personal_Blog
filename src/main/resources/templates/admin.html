@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <h1>Personal Blog</h1>
+        <a th:href="@{/new}">+ Add</a>
+    </div>
+
+
+    <div id="content">
+        <div class="list" th:each="article : ${list}">
+            <div id="title">
+                <a class="list-item"
+                   th:href="@{/article/{id}(id=${article.id})}">
+                    <span class="title" th:text="${article.title}"></span>
+                </a>
+            </div>
+            <div id="operate">
+                <a th:href="@{/edit/{id}(id=${article.id})}">
+                    Edit
+                </a>
+                <a th:href="@{/delete/{id}(id=${article.id})}">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

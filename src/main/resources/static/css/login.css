@@ -1,0 +1,60 @@
+
+h1{
+  font-family: mFont2;
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.wrap input{
+  width: 388px;
+  height: 40px;
+  border: 2px solid #1d1d1d;
+  border-radius: 4px;
+  outline: none;
+  padding: 0 5px;
+  color: #1d1d1d;
+}
+
+form{
+  text-align: center;
+  margin-top: 32px;
+}
+
+.custom-input{
+  margin-top: 10px;
+}
+
+#username{
+  margin-bottom: 15px;
+}
+
+#password{
+  margin-bottom: 10px;
+}
+
+.custom-button {
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  padding: 8px 28px;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  width: 390px;
+}
+
+.custom-button:hover {
+  transform: scale(1.05);
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+}

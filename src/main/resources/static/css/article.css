@@ -1,0 +1,35 @@
+*{
+  //padding: 12px;
+}
+
+h1, h2{
+  font-family: mFont1;
+  //padding: 0 12px;
+}
+
+h2{
+  color: #9fa8b2;
+}
+
+#content{
+  margin-top: 10px;
+}
+
+.list-item{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;/*阻止文本换行*/
+}
+
+.list-item:nth-child(even) {
+  background: #f5f5f5;
+}
+
+.title{
+  width: 200px;
+  overflow: hidden;
+  color: black;
+}
+
+

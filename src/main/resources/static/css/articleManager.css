@@ -1,0 +1,95 @@
+
+h1{
+  font-family: mFont2;
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.wrap input{
+  width: 388px;
+  height: 40px;
+  border: 2px solid #1d1d1d;
+  border-radius: 4px;
+  outline: none;
+  padding: 0 5px;
+  color: #1d1d1d;
+}
+
+.wrap textarea{
+  border: 2px solid #1d1d1d;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  background-color: transparent;
+  font-size: inherit;
+  width: 388px;
+  max-width: 388px;
+  height: 120px;
+  color: #1d1d1d;
+  overflow-y: auto;
+  overflow-x: hidden;
+  resize: vertical;
+}
+
+.wrap textarea::-webkit-scrollbar{
+  width: 8px;
+}
+
+.wrap textarea::-webkit-scrollbar-thumb{
+  background: #888;
+  border-radius: 4px;
+}
+
+.wrap textarea::-webkit-scrollbar-thumb:hover{
+  background: #555;
+}
+
+
+
+form{
+  text-align: center;
+  margin-top: 32px;
+}
+
+.custom-input{
+  margin-top: 10px;
+}
+
+.title{
+  margin-bottom: 15px;
+}
+
+.date{
+  margin-bottom: 10px;
+}
+
+.custom-button {
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  padding: 8px 28px;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  width: 390px;
+}
+
+.custom-button:hover {
+  transform: scale(1.05);
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+}

@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "mFont1";
+  src: url("../font/shanhaiputishoushuw.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "mFont2";
+  src: url("../font/bailufeiyunshouxieti.ttf") format("truetype");
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.wrap{
+  height: 70%;
+  width: 40%;
+  margin: 15% auto;
+  border: 4px #242424 solid;
+  border-radius: 10px;
+  padding: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: scale(1.3);
+}
+
+.wrap::-webkit-scrollbar{
+  width: 8px;
+}
+
+.wrap::-webkit-scrollbar-thumb{
+  background: #888;
+  border-radius: 4px;
+}
+
+.wrap::-webkit-scrollbar-thumb:hover{
+  background: #555;
+}

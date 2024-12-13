@@ -1,0 +1,47 @@
+h1{
+  font-family: mFont2;
+  padding: 0 5px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  > a{
+    color: black;
+    margin-top: 10px;
+  }
+}
+
+#content{
+  margin-top: 10px;
+}
+
+.list{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item{
+  white-space: nowrap;/*阻止文本换行*/
+  color: black;
+}
+
+.list:nth-child(even) {
+  background: #f5f5f5;
+}
+
+#title{
+  width: 50%;
+  overflow: hidden;
+}
+
+#operate{
+  width: 105px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#operate a{
+  color: #9fa8b2;
+}
