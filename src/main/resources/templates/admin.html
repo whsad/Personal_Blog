@@ -14,8 +14,11 @@
         <a th:href="@{/new}">+ Add</a>
     </div>
 
-
     <div id="content">
+        <div class="default" th:if="${#lists.isEmpty(list)}">
+            <p>No articles available. Please add some.</p>
+        </div>
+
         <div class="list" th:each="article : ${list}">
             <div id="title">
                 <a class="list-item"
@@ -27,9 +30,11 @@
                 <a th:href="@{/edit/{id}(id=${article.id})}">
                     Edit
                 </a>
-                <a th:href="@{/delete/{id}(id=${article.id})}">
-                    Delete
-                </a>
+                <form action="/delete" method="post"
+                      onsubmit="return confirm('Are you sure you want to delete this article?');">
+                    <input type="hidden" name="Id" th:value="${article.id}">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
             </div>
         </div>
     </div>

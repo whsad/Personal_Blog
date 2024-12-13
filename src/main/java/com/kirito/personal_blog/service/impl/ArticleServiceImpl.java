@@ -64,6 +64,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .ifPresent(article -> model.addAttribute("article", article));
     }
 
+    // 修改文章
     @Override
     public boolean updateArticle(Article article) {
         String id = article.getId();
@@ -81,6 +82,13 @@ public class ArticleServiceImpl implements ArticleService {
             }
         }
         throw new IllegalArgumentException("Article not found with ID: " + id);
+    }
+
+    // 删除文章
+    @Override
+    public void deleteArticle(String id) {
+        Article article = findArticleById(id);
+        articles.remove(article);
     }
 
     // 保存文章到Json文件

@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-
 
 @Controller
 public class ArticleController {
@@ -24,6 +22,13 @@ public class ArticleController {
     @PostMapping("/edit")
     public String updateArticle(@ModelAttribute Article article){
         articleService.updateArticle(article);
+        return "redirect:/admin";
+    }
+
+    @PostMapping("/delete")
+    public String deleteArticle(@RequestParam("Id") String Id){
+        //System.out.println(Id);
+        articleService.deleteArticle(Id);
         return "redirect:/admin";
     }
 }

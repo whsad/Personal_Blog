@@ -40,6 +40,8 @@ a{
   overflow-y: auto;
   overflow-x: hidden;
   transform: scale(1.3);
+  display: flex;
+  flex-direction: column;
 }
 
 .wrap::-webkit-scrollbar{

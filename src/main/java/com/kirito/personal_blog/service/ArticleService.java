@@ -19,4 +19,6 @@ public interface ArticleService {
     void findArticleById(String id, Model model);
 
     boolean updateArticle(Article article);
+
+    void deleteArticle(String id);
 }
