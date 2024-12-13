@@ -21,4 +21,9 @@ public class ArticleController {
         return "redirect:/admin";
     }
 
+    @PostMapping("/edit")
+    public String updateArticle(@ModelAttribute Article article){
+        articleService.updateArticle(article);
+        return "redirect:/admin";
+    }
 }

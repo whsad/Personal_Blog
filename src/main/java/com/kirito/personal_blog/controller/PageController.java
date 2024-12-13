@@ -49,11 +49,13 @@ public class PageController {
         return "articleManager";
     }
 
-    // 修改页面
+    // 修改页面回显数据
     @GetMapping("/edit/{Id}")
     public String editPage(@PathVariable String Id, Model model){
         model.addAttribute("type", "edit");
-        articleService.findArticleById(Id, model);
+        Article article = articleService.findArticleById(Id);
+        article.setContent(article.getContent().replace("<br>", "\n"));
+        model.addAttribute("article", article);
         return "articleManager";
     }
 

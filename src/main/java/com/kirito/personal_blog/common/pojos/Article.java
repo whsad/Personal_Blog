@@ -24,7 +24,6 @@ public class Article {
 
     private String showPub;
 
-
     public Article() {
     }
 

@@ -14,5 +14,9 @@ public interface ArticleService {
 
     List<Article> list();
 
+    Article findArticleById(String id);
+
     void findArticleById(String id, Model model);
+
+    boolean updateArticle(Article article);
 }

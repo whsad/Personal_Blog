@@ -8,15 +8,18 @@ import org.springframework.ui.Model;
 
 import javax.annotation.PostConstruct;
 import java.io.*;
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 
 @Slf4j
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
-    private List<Article> articles;
+    private LinkedList<Article> articles;
     private final static String ARTICLE_PATH =
             System.getProperty("user.dir")
             + File.separator
@@ -33,10 +36,51 @@ public class ArticleServiceImpl implements ArticleService {
     public void addArticle(Article content) {
         content.setContent(content.getContent()
                 .replace("\n", "<br>")
-                .replace("\r", "<br>"));
+                .replace("\r", ""));
         Article article = new Article(content);
-        articles.add(article);
-        //todo 已经实现新增文章功能，并且解决文章换行问题，明天实现编辑功能
+        articles.addFirst(article);
+    }
+
+    // 获取所有文章
+    @Override
+    public List<Article> list() {
+        return articles;
+    }
+
+    @Override
+    public Article findArticleById(String id){
+        return articles.stream()
+                .filter(article -> article.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Article not found with ID: " + id));
+    }
+
+    // 根据Id查找文章
+    @Override
+    public void findArticleById(String id, Model model) {
+        articles.stream()
+                .filter(article -> article.getId().equals(id)) // 筛选除匹配的文章
+                .findFirst() // 获取第一个匹配的文章
+                .ifPresent(article -> model.addAttribute("article", article));
+    }
+
+    @Override
+    public boolean updateArticle(Article article) {
+        String id = article.getId();
+        for (int i = 0; i < articles.size(); i++) {
+            Article target = articles.get(i);
+            if (target.getId().equals(id)){
+                article.setContent(article.getContent().replace("\n", "<br>"));
+                // 更新时间
+                LocalDate publishTime = LocalDate.parse(article.getShowPub());
+                article.setPublishTime(publishTime);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+                article.setShowPub(publishTime.format(formatter));
+                articles.set(i, article);
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Article not found with ID: " + id);
     }
 
     // 保存文章到Json文件
@@ -61,29 +105,14 @@ public class ArticleServiceImpl implements ArticleService {
         }
     }
 
-    // 获取所有文章
-    @Override
-    public List<Article> list() {
-        return articles;
-    }
-
-    // 根据Id查找文章
-    @Override
-    public void findArticleById(String id, Model model) {
-        articles.stream()
-                .filter(article -> article.getId().equals(id)) // 筛选除匹配的文章
-                .findFirst() // 获取第一个匹配的文章
-                .ifPresent(article -> model.addAttribute("article", article));
-    }
-
     // 从 JSON 文件加载任务
-    private List<Article> loadArticles() {
+    private LinkedList<Article> loadArticles() {
         File file = new File(ARTICLE_PATH);
         if (!file.exists()){
-            return new ArrayList<>();
+            return new LinkedList<>();
         }
 
-        List<Article> stored_article = new ArrayList<>();
+        LinkedList<Article> stored_article = new LinkedList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
@@ -115,5 +144,4 @@ public class ArticleServiceImpl implements ArticleService {
             storedArticle.add(Article.parseArticleFromJson(articleJson));
         }
     }
-
 }
