@@ -32,7 +32,8 @@ The project demonstrates file-based storage for articles, basic authentication, 
 3. Run the application:
 
    ```bash
-   java -jar target/Personal_Blog-0.0.1-SNAPSHOT.jar
+   cd target
+   java -jar Personal_Blog-0.0.1-SNAPSHOT.jar
    ```
 
 4. Access the application in your browser:  
