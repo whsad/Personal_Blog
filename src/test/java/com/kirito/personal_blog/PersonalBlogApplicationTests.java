@@ -18,7 +18,6 @@ class PersonalBlogApplicationTests {
         article.setId("1");
         article.setTitle("test");
         article.setPublishTime(LocalDate.now());
-        article.setUpdateTime(LocalDate.now());
         article.setContent("text");
         article.setShowPub("2024-12-12");
         String json = article.convertArticleToJson();
@@ -28,7 +27,6 @@ class PersonalBlogApplicationTests {
         System.out.println(article1.getTitle());
         System.out.println(article1.getContent());
         System.out.println(article1.getPublishTime());
-        System.out.println(article1.getUpdateTime());
         System.out.println(article1.getShowPub());
     }
 

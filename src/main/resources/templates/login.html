@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
 <head>
     <meta charset="UTF-8">
@@ -10,9 +12,10 @@
 <body>
     <div class="wrap">
         <h1>Login</h1>
-        <h3 th:if="${result}">用户名或密码错误</h3>
 
-        <form action="/login" method="post">
+        <h3 th:if="${param.error}">Invalid username or password</h3>
+
+        <form th:action="@{/Login}" method="post">
             <div class="custom-input">
                 <input id="username" type="text" name="username" placeholder="username" required>
                 <input id="password" type="password" name="password" placeholder="password" required>

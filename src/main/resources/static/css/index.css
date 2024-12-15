@@ -1,3 +1,8 @@
+.wrap{
+  display: flex;
+  flex-direction: column;
+}
+
 h1{
   font-family: mFont2;
   padding: 0 5px;
@@ -5,6 +10,14 @@ h1{
 
 #content{
   margin-top: 10px;
+  flex: 2;
+}
+
+.default{
+  height: 86%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .list-item{

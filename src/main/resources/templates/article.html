@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
 <head>
     <meta charset="UTF-8">
     <title th:text="${article.title}">Article</title>
@@ -13,7 +16,6 @@
     <h3 class="time" th:text="${article.showPub}">August 7, 2024</h3>
 
     <p class="content" th:utext="${article.content}">Hello World</p>
-
 </div>
 </body>
 </html>

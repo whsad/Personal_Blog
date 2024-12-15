@@ -1,5 +1,9 @@
 server:
   port: 8081
+  servlet:
+    session:
+      timeout: 7d
+
 
 spring:
   web:
@@ -7,11 +11,21 @@ spring:
     locale-resolver: fixed
   thymeleaf:
     cache: false
+    enabled: true
+    mode: HTML
+    suffix: .html
+    prefix: classpath:/templates/
 
 personalblog:
   account:
     - username: admin
-      password: admin
+      password: "{noop}admin"
+      roles: "ADMIN"
     - username: kirito
-      password: 123456
-
+      password: "{noop}123456"
+      roles: "USER"
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: DEBUG

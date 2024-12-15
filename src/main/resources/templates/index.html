@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
 <head>
     <meta charset="UTF-8">
@@ -12,9 +14,13 @@
     <h1>Personal Blog</h1>
 
     <div id="content">
+        <div class="default" th:if="${#lists.isEmpty(list)}">
+            <p>No articles available.</p>
+        </div>
+
         <a class="list-item"
            th:each="article : ${list}"
-           th:href="@{/article/{id}(id=${article.id})}">
+           th:href="@{/base/article/{id}(id=${article.id})}">
             <span class="title" th:text="${article.title}"></span>
             <span class="time" th:text="${article.showPub}"></span>
         </a>
