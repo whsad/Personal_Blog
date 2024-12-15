@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -35,9 +33,6 @@ public class SecurityConfig {
                 .failureHandler(new CustomAuthenticationFailureHandler()) // 设置自定义失败处理器
                 .permitAll();
 
-        // Spring Security 默认启用了 CSRF 保护，未携带正确的 CSRF Token 时，POST 请求会被拦截并返回 403 Forbidden。
-        // todo 昨天一通操作没什么问题，403forbidden的原因是没有开启 csrf.disable()
-        // 目前测试没什么问题，明天再看看
         return http.build();
     }
 

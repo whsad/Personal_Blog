@@ -17,10 +17,8 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        // 设置错误信息到请求属性
-        request.setAttribute("error", "用户名或密码错误");
         // 转发到登录页面
         response.sendRedirect("/login?error=true");
-        log.error("用户名或密码错误");
+        log.error("Invalid username or password");
     }
 }
