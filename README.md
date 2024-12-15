@@ -82,3 +82,5 @@ src/main/
 - Article information is stored in the `/resources/static/file` directory, with each article saved individually in JSON format.
 - The default admin username and password are specified in the `application.yml` configuration file and can be modified as needed.
 - Future project enhancements may include features such as article categorization, a commenting system, and using a database to store articles.
+
+This is a solution to a project challenge in [roadmap.sh](https://roadmap.sh/projects/personal-blog).
